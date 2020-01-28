@@ -47,6 +47,18 @@ window.onload = () => {
       }
     },
     methods: {
+      //https://developers.google.com/maps/documentation/distance-matrix/intro#DistanceMatrixRequests
+      //AIzaSyAE7RT5EB1Nls2UzwALJ0X5x_s-qbk8THc
+      function loadDoc(sLocation,oTarget) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+           oTarget.innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("GET", sLocation, true);
+        xhttp.send();
+      },
       toggle() {
         console.log('Toggle button clicked')
         this.show = !this.show
